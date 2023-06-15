@@ -1,0 +1,25 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/home.css' %}">
+
+    <section class="hero">
+      <div class="texto">
+
+        <h1>Pedro Abreu</h1>
+
+        <p class="me">Programador e gamer</p>
+        <p>A nossa maior fraqueza é desistir</p>
+
+      </div>
+    </section>
+
+    <article>
+        <p>Olá! Sou estudante do segundo ano de Engenharia Informática, na Universidade Lusófona.
+          Sempre fui um apaixonado pela tecnologia, especialmente pelos jogos, daí a minha paixão pela programação e pelo design.
+          Quando acabar o curso gostaria de integrar uma empresa de video jogos, preferencialmente, no estrangeiro.
+          Além de informático sou desportista e pratico hóquei em patins há mais de 10 anos.
+        </p>
+    </article>
+{% endblock %}

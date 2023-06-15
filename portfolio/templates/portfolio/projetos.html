@@ -1,0 +1,84 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    <section class="hero">
+        <p>Projetos universitários</p>
+        <div class="capitais">
+
+            <a href="https://github.com/pedro-abreu-a22110364/euromilhoes" target="_blank">
+                <div>
+                    {% load static %}
+                    {% static 'portfolio/images/euromilhoes.jpg' %}
+                </div>
+                <div>
+                    <p>Euromilhões</p>
+                </div>
+            </a>
+
+            <a href="https://github.com/pedro-abreu-a22110364/deisiflix" target="_blank">
+                <div>
+                    {% load static %}
+                    {% static 'portfolio/images/filmes.jpg' %}
+                </div>
+                <div>
+                    <p>Deisiflix</p>
+                </div>
+            </a>
+
+            <a href="https://github.com/pedro-abreu-a22110364/minesweeper" target="_blank">
+                <div>
+                    {% load static %}
+                    {% static 'portfolio/images/minesweeper.jpg' %}
+                </div>
+                <div>
+                    <p>Minesweeper</p>
+                </div>
+            </a>
+        </div>
+
+        <p>TFC's</p>
+        <div class="capitais">
+            <a href="https://informatica.ulusofona.pt/wp-content/uploads/sites/57/2022/10/TFC_22_DEISI243.pdf" target="_blank">
+                <div>
+                    {% load static %}
+                    {% static 'portfolio/images/matricula.png' %}
+                </div>
+                <div>
+                    <p>Parque de estacionamento</p>
+                </div>
+            </a>
+
+            <a href="https://informatica.ulusofona.pt/wp-content/uploads/sites/57/2022/10/TFC_21_DEISI189.pdf" target="_blank">
+                <div>
+                    {% load static %}
+                    {% static 'portfolio/images/intellij.png' %}
+                </div>
+                <div>
+                    <p>Plugin Drop-Project</p>
+                </div>
+            </a>
+
+            <a href="https://informatica.ulusofona.pt/wp-content/uploads/sites/57/2022/10/TFC_22_Aluno228.pdf" target="_blank">
+                <div>
+                    {% load static %}
+                    {% static 'portfolio/images/android.png' %}
+                </div>
+                <div>
+                    <p>Drop-Project para Android</p>
+                </div>
+            </a>
+
+            <a href="https://informatica.ulusofona.pt/wp-content/uploads/sites/57/2022/10/TFC_21_DEISI149.pdf" target="_blank">
+                <div>
+                    {% load static %}
+                    {% static 'portfolio/images/travel.png' %}
+                </div>
+                <div>
+                    <p>Traveller's community</p>
+                </div>
+            </a>
+
+        </div>
+
+    </section>
+{% endblock %}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'portfolio/css/layout.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+</head>
+<body>
+<header>
+    <nav>
+        <a href="{% url 'portfolio:home' %}">Home</a>
+
+        <div class="dropdown">
+            <p class="dropbtn">
+                Sobre mim
+                <i class="fa fa-caret-down"></i>
+            </p>
+            <div class="dropdown-content">
+                <a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a>
+                <a href="">Educação</a>
+                <a href="">Aptidões e competências</a>
+                <a href="">Interesses e hobbies</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <p class="dropbtn">
+                Projetos
+                <i class="fa fa-caret-down"></i>
+            </p>
+            <div class="dropdown-content">
+                <a href="">Pessoais</a>
+                <a href="">TFC's</a>
+            </div>
+        </div>
+
+        <div class="dropdown">
+            <p class="dropbtn">
+                PW
+                <i class="fa fa-caret-down"></i>
+            </p>
+            <div class="dropdown-content">
+                <a href="">Lab 1/2</a>
+                <a href="">Lab 3</a>
+            </div>
+        </div>
+
+        <a href="">Contacto</a>
+    </nav>
+</header>
+
+<main>
+    {% block main %}
+    {% endblock main %}
+</main>
+
+<footer>ULusófona, 2023</footer>
+</body>
+</html>

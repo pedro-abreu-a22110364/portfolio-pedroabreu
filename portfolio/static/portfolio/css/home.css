@@ -1,0 +1,120 @@
+* {
+  font-family: "Oxygen", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../images/programming.jpg);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+  grid-area: hero;
+}
+
+.texto {
+  flex: 1;
+  padding: 20px;
+  color: whitesmoke;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 5vh;
+}
+
+h1 {
+  font-size: 250%;
+}
+
+.me {
+  margin-bottom: 10%;
+}
+
+article {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../images/gaming.jpg);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: multiply;
+  grid-area: article;
+}
+
+article > p {
+  padding: 5%;
+  color: whitesmoke;
+  font-size: 200%;
+  text-align: justify;
+}
+
+footer {
+  display: flex;
+  height: 5vh;
+  background: black;
+  color: whitesmoke;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vh;
+  opacity: 0.9;
+  grid-area: footer;
+}
+
+@media only screen and (min-width: 601px), (orientation: landscape) {
+  body {
+    display: grid;
+    width: 100%;
+    height: 205vh;
+
+    grid-template-rows: 5vh 1fr 1fr 5vh;
+    grid-template-columns: 100%;
+
+    grid-template-areas: 
+    'header'
+    'hero'
+    'article'
+    'footer';
+  }
+}
+
+@media only screen and (max-width: 600px), (orientation: portrait) {
+  body {
+    display: grid;
+    width: 100%;
+    height: 200vh;
+
+    grid-template-rows: 5vh 1fr 1fr 10vh;
+    grid-template-columns: 100%;
+
+    grid-template-areas: 
+    'header'
+    'hero'
+    'article'
+    'footer';
+  }
+
+  .texto {
+    font-size: 110%;
+  }
+
+  h1 {
+    margin-bottom: 5vh;
+  }
+
+  article > p {
+    font-size: 110%;
+    padding: 15%;
+  }
+}

@@ -1,0 +1,130 @@
+* {
+  font-family: "Oxygen", sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: whitesmoke;
+  z-index: 1;
+  grid-area: header;
+}
+
+nav {
+  margin-left: 5%;
+  margin-right: 5%;
+  display: flex;
+  justify-content: space-between;
+  color: rgb(59, 59, 59);
+  font-weight: bolder;
+  font-size: larger;
+  overflow: hidden;
+}
+
+nav a {
+  float: left;
+  font-size: 16px;
+  color: rgb(59, 59, 59);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: rgb(255, 255, 255, 0.5);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 95vh;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../images/programming.jpg);
+  background-size: cover;
+  background-color: rgba(0, 0, 0, 0.7);
+  background-blend-mode: multiply;
+  grid-area: hero;
+}
+
+.hero > div {
+  margin-bottom: 1%;
+}
+
+input {
+  width: 100%;
+}
+
+#result {
+    color: whitesmoke;
+}
+
+label {
+  color: whitesmoke;
+}
+
+footer {
+  display: flex;
+  height: 5vh;
+  background: black;
+  color: whitesmoke;
+  align-items: center;
+  justify-content: center;
+  font-size: 2vh;
+  opacity: 0.9;
+  grid-area: footer;
+}
+
+@media only screen and (min-width: 601px), (orientation: landscape) {
+  body {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+
+    grid-template-rows: 5vh 1fr 5vh;
+    grid-template-columns: 100%;
+
+    grid-template-areas: 
+    'header'
+    'hero'
+    'footer';
+  }
+}
+
+@media only screen and (max-width: 600px), (orientation: portrait) {
+  body {
+    display: grid;
+    width: 100%;
+    height: 100vh;
+
+    grid-template-rows: 5vh 1fr 10vh;
+    grid-template-columns: 100%;
+
+    grid-template-areas: 
+    'header'
+    'hero'
+    'footer';
+  }
+
+  .hero {
+    height: 100vh;
+  }
+
+  form {
+    width: 80%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+  
+  footer {
+    font-size: 80%;
+  }
+}
