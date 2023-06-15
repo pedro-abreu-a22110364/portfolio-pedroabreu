@@ -10,7 +10,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10vh;
+    padding: 5vh;
+}
+
+h2 {
+    padding: 1vh;
+    margin-bottom: 5vh;
+    font-size: xxx-large;
+    color: whitesmoke;
 }
 
 .card {

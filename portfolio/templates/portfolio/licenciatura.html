@@ -5,11 +5,14 @@
     <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/licenciatura.css' %}">
 
     <div class="container">
+        <h2>Licenciatura</h2>
         {% for cadeira in cadeiras %}
             <div class="card">
                 <div class="name">{{ cadeira.nome }}</div>
                 <div class="details">{{ cadeira.ano }}º ano - {{ cadeira.semestre }}º semestre</div>
-                <div class="details">Occupation: Software Engineer</div>
+                {% for rank in ''|center:cadeira.ranking %}
+                    <i class="fa fa-star"></i>
+                {% endfor %}
             </div>
         {% endfor %}
     </div>
