@@ -4,36 +4,14 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/licenciatura.css' %}">
 
-    <div>
-        <div class="card">
-            <div class="name">John Doe</div>
-            <div class="details">Age: 30</div>
-            <div class="details">Occupation: Software Engineer</div>
-        </div>
-
-        <div class="card">
-            <div class="name">Jane Smith</div>
-            <div class="details">Age: 28</div>
-            <div class="details">Occupation: Graphic Designer</div>
-        </div>
-
-        <div class="card">
-            <div class="name">Alex Johnson</div>
-            <div class="details">Age: 35</div>
-            <div class="details">Occupation: Project Manager</div>
-        </div>
-
-        <div class="card">
-            <div class="name">Jane Smith</div>
-            <div class="details">Age: 28</div>
-            <div class="details">Occupation: Graphic Designer</div>
-        </div>
-
-        <div class="card">
-            <div class="name">Alex Johnson</div>
-            <div class="details">Age: 35</div>
-            <div class="details">Occupation: Project Manager</div>
-        </div>
+    <div class="container">
+        {% for cadeira in cadeiras %}
+            <div class="card">
+                <div class="name">{{ cadeira.nome }}</div>
+                <div class="details">{{ cadeira.ano }}º ano - {{ cadeira.semestre }}º semestre</div>
+                <div class="details">Occupation: Software Engineer</div>
+            </div>
+        {% endfor %}
     </div>
 
 {% endblock %}

@@ -3,6 +3,8 @@ from datetime import datetime
 from django.http import HttpResponse
 from django.shortcuts import render
 
+from portfolio.models import *
+
 
 # Create your views here.
 
@@ -27,7 +29,8 @@ def projetos_page_view(request):
 
 
 def licenciatura_page_view(request):
-    return render(request, 'portfolio/licenciatura.html')
+    cadeiras = {'cadeiras': Cadeira.objects.all()}
+    return render(request, 'portfolio/licenciatura.html', cadeiras)
 
 
 def home_view(request):
