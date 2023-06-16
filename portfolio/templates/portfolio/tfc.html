@@ -10,6 +10,17 @@
             <a href="{{ t.relatorio }}" target="_blank">
                 <div class="card">
                     <div class="name">{{ t.titulo }}</div>
+
+                    {% with participantes=t.pessoas.all %}
+                        {% if participantes %}
+                            <div class="details">Participantes:
+                                {% for pessoa in participantes %}
+                                    {{ pessoa.nome }}{% if not forloop.last %}, {% endif %}
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    {% endwith %}
+
                 </div>
             </a>
         {% endfor %}

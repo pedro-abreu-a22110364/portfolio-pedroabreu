@@ -30,8 +30,15 @@ def projetos_page_view(request):
 
 
 def tfc_page_view(request):
-    tfcs = {'tfcs': Tfc.objects.all()}
-    return render(request, 'portfolio/tfc.html', tfcs)
+    tfcs = Tfc.objects.all()
+    pessoas = Pessoa.objects.all()
+
+    context = {
+        'tfcs': tfcs,
+        'pessoas': pessoas
+    }
+
+    return render(request, 'portfolio/tfc.html', context)
 
 
 def licenciatura_page_view(request):
