@@ -11,7 +11,7 @@ class Cadeira(models.Model):
     ects = models.IntegerField(default=0)
     topicos = models.CharField(max_length=500, default="Topicos", blank=True)
     ranking = models.IntegerField(default=0, blank=True)
-    pagina = models.CharField(max_length=300, default="Sem link")
+    pagina = models.URLField(default="Sem link")
 
     def __str__(self):
         return self.nome
@@ -20,8 +20,8 @@ class Cadeira(models.Model):
 class Pessoa(models.Model):
     nome = models.CharField(max_length=100, default="Nome")
     cargo = models.CharField(max_length=50, default="Sem cargo", blank=True)
-    lusofona = models.CharField(max_length=300, default="Sem link", blank=True)
-    linkedin = models.CharField(max_length=300, default="Sem link", blank=True)
+    lusofona = models.URLField(default="Sem link", blank=True)
+    linkedin = models.URLField(default="Sem link", blank=True)
     cadeira = models.ManyToManyField(Cadeira, blank=True)
 
     def __str__(self):
@@ -35,7 +35,7 @@ class Projeto(models.Model):
     ano = models.IntegerField(default=0)
     cadeira = models.ForeignKey(Cadeira, on_delete=models.CASCADE, blank=True)
     participantes = models.ManyToManyField(Pessoa, blank=True)
-    github = models.CharField(max_length=300, default="Sem link", blank=True)
+    github = models.URLField(default="Sem link", blank=True)
 
     def __str__(self):
         return self.titulo
@@ -55,7 +55,7 @@ class Hobbie(models.Model):
     titulo = models.CharField(max_length=100, default="Titulo")
     descricao = models.CharField(max_length=500, default="Descrição")
     fotografia = models.ImageField(upload_to='tarefas/portfolio', null=True, blank=True)
-    link = models.CharField(max_length=300, blank=True)
+    link = models.URLField(blank=True)
 
     def __str__(self):
         return self.titulo
@@ -66,21 +66,9 @@ class Tfc(models.Model):
     pessoas = models.ManyToManyField(Pessoa, blank=True)
     ano = models.IntegerField(default=0)
     resumo = models.CharField(max_length=500, default="Sumario")
-    relatorio = models.CharField(max_length=300, default="Sem link")
-    github = models.CharField(max_length=300, default="Sem link", blank=True)
-    youtube = models.CharField(max_length=300, default="Sem link", blank=True)
-
-    def __str__(self):
-        return self.titulo
-
-
-class Post(models.Model):
-    titulo = models.CharField(max_length=100, default="Titulo")
-    descricao = models.CharField(max_length=500, default="Descrição")
-    autor = models.OneToOneField(Pessoa, on_delete=models.CASCADE, blank=True)
-    data = models.DateField
-    link = models.CharField(max_length=300, blank=True)
-    fotografia = models.ImageField(upload_to='tarefas/portfolio', null=True, blank=True)
+    relatorio = models.URLField(default="Sem link")
+    github = models.URLField(default="Sem link", blank=True)
+    youtube = models.URLField(default="Sem link", blank=True)
 
     def __str__(self):
         return self.titulo
@@ -88,8 +76,66 @@ class Post(models.Model):
 
 class Contacto(models.Model):
     nome = models.CharField(max_length=50)
-    link = models.CharField(max_length=300, default="Sem link", blank=True)
+    link = models.URLField(max_length=300, default="Sem link", blank=True)
     fotografia = models.ImageField(upload_to='tarefas/portfolio', null=True, blank=True)
 
     def __str__(self):
         return self.nome
+
+
+class Educacao(models.Model):
+    curso = models.CharField(max_length=100)
+    local = models.CharField(max_length=50)
+    data_entrada = models.DateField
+    data_saida = models.DateField(null=True, blank=True)
+    logotipo = models.ImageField(upload_to='tarefas/portfolio', null=True, blank=True)
+
+    def __str__(self):
+        return self.curso
+
+
+class Conta(models.Model):
+    nome = models.CharField(max_length=100, default="Nome")
+    github = models.URLField(default="Sem link")
+    pythonanywhere = models.URLField(default="Sem link")
+
+    def __str__(self):
+        return self.nome
+
+
+class Area(models.Model):
+    nome = models.CharField(max_length=100, default="Nome")
+
+    def __str__(self):
+        return self.nome
+
+
+class Autor(models.Model):
+    nome = models.CharField(max_length=100, default="Nome")
+    areas_of_interest = models.ManyToManyField(Area)
+
+    def __str__(self):
+        return self.nome
+
+
+class Artigo(models.Model):
+    data = models.DateField()
+    autor = models.CharField(max_length=100, null=True, blank=True)
+    area = models.ForeignKey(Area, on_delete=models.CASCADE, blank=True)
+    titulo = models.CharField(max_length=100, default="Titulo")
+    texto = models.TextField(max_length=1000, default="Texto")
+    image = models.ImageField(upload_to='tarefas/portfolio', null=True, blank=True)
+    link = models.URLField()
+    likes = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.titulo
+
+
+class Comentario(models.Model):
+    artigo = models.ForeignKey(Artigo, on_delete=models.CASCADE, related_name='comments')
+    titulo = models.CharField(max_length=100, default="Titulo")
+    texto = models.TextField(max_length=1000, default="Texto")
+
+    def __str__(self):
+        return self.titulo

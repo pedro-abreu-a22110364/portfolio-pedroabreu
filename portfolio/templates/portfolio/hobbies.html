@@ -1,0 +1,20 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/licenciatura.css' %}">
+
+    <div class="container">
+        <h2>Hobbies</h2>
+        {% for cadeira in cadeiras %}
+            <div class="card">
+                <div class="name">{{ cadeira.nome }}</div>
+                <div class="details">{{ cadeira.ano }}º ano - {{ cadeira.semestre }}º semestre</div>
+                {% for rank in ''|center:cadeira.ranking %}
+                    <i class="fa fa-star"></i>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

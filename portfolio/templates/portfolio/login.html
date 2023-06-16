@@ -1,0 +1,23 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/licenciatura.css' %}">
+
+    <div class="container">
+        <h2>Login</h2>
+        <div class="wrapper">
+
+            <form action="{% url 'portfolio:login' %}" method="post">
+                {% csrf_token %}
+
+                <p>Username: <input type="text" name="username" placeholder="Username"></p>
+                <p>Password: <input type="password" name="password" placeholder="Password"></p>
+
+                <input type="submit" value="Entrar!" class="btnSubmit">
+            </form>
+
+        </div>
+    </div>
+
+{% endblock %}

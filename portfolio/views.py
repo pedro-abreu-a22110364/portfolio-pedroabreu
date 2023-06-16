@@ -1,8 +1,12 @@
 from datetime import datetime
 
-from django.http import HttpResponse
+from django.contrib.auth import logout, authenticate, login
+from django.contrib.auth.decorators import login_required
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 
+from portfolio.forms import *
 from portfolio.models import *
 
 
@@ -10,10 +14,6 @@ from portfolio.models import *
 
 def home_page_view(request):
     return render(request, 'portfolio/home.html')
-
-
-def apresentacao_page_view(request):
-    return render(request, 'portfolio/apresentacao.html')
 
 
 def competencias_page_view(request):
@@ -51,6 +51,21 @@ def licenciatura_page_view(request):
     return render(request, 'portfolio/licenciatura.html', cadeiras)
 
 
+def blogCriar_page_view(request):
+    form = ArtigoForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:blog'))
+
+    context = {'form': form}
+    return render(request, 'portfolio/blogCriar.html', context)
+
+
+def blog_page_view(request):
+    artigos = {'artigos': Artigo.objects.all()}
+    return render(request, 'portfolio/blog.html', artigos)
+
+
 def home_view(request):
     agora = datetime.datetime.now()
     local = 'Lisboa'
@@ -63,3 +78,44 @@ def home_view(request):
     }
 
     return render(request, 'portfolio/home.html', context)
+
+
+def logout_view(request):
+    logout(request)
+    return render(request, 'portfolio/login.html', {'message': "Logged Out"})
+
+
+def login_view(request):
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            artigos = {'artigos': Artigo.objects.all()}
+            return render(request, 'portfolio/blog.html', artigos)
+        else:
+            return render(request, 'portfolio/login.html', {
+                'menssage': "Invalid credentials"
+            })
+    return render(request, 'portfolio/login.html')
+
+
+@login_required
+def blogApagar_page_view(request, blog_id):
+    Artigo.objects.get(id=blog_id).delete()
+    return HttpResponseRedirect(reverse('portfolio:blog'))
+
+
+@login_required
+def blogEditar_page_view(request, blog_id):
+    blog = Artigo.objects.get(id=blog_id)
+    form = ArtigoForm(request.POST or None, instance=blog)
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(reverse('portfolio:blog'))
+
+    context = {'form': form, 'blog_id': blog_id, }
+
+    return render(request, 'portfolio/blogEditar.html', context)

@@ -1,0 +1,23 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/licenciatura.css' %}">
+
+    <div class="container">
+
+        <h3>Nova Publicação</h3>
+        <div class="card">
+            <form action="" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                <a href="{% url 'portfolio:blog' %}" role="button" class="">Cancelar</a>
+                <input type="submit" value="Criar" class="">
+            </form>
+        </div>
+
+    </div>
+
+
+{% endblock %}
