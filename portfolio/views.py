@@ -41,6 +41,11 @@ def tfc_page_view(request):
     return render(request, 'portfolio/tfc.html', context)
 
 
+def hobbies_page_view(request):
+    hobbies = {'hobbies': Hobbie.objects.all()}
+    return render(request, 'portfolio/hobbies.html', hobbies)
+
+
 def contactos_page_view(request):
     contactos = {'contactos': Contacto.objects.all()}
     return render(request, 'portfolio/contacto.html', contactos)
@@ -119,3 +124,7 @@ def blogEditar_page_view(request, blog_id):
     context = {'form': form, 'blog_id': blog_id, }
 
     return render(request, 'portfolio/blogEditar.html', context)
+
+
+def video_page_view(request):
+    return render(request, 'portfolio/video.html')

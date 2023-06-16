@@ -22,7 +22,7 @@
                 <a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a>
                 <a href="">Educação</a>
                 <a href="">Aptidões e competências</a>
-                <a href="">Interesses e hobbies</a>
+                <a href="{% url 'portfolio:hobbies' %}">Interesses e hobbies</a>
             </div>
         </div>
 
@@ -43,6 +43,7 @@
                 <i class="fa fa-caret-down"></i>
             </p>
             <div class="dropdown-content">
+                <a href="{% url 'portfolio:video' %}">Video</a>
                 <a href="">Lab 1/2</a>
                 <a href="">Lab 3</a>
             </div>
