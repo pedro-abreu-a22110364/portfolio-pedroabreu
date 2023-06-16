@@ -12,5 +12,6 @@ urlpatterns = [
     path('competencias', views.competencias_page_view, name='competencias'),
     path('formacao', views.formacao_page_view, name='formacao'),
     path('projetos', views.projetos_page_view, name='projetos'),
-    path('tfc', views.tfc_page_view, name='tfc')
+    path('tfc', views.tfc_page_view, name='tfc'),
+    path('contacto', views.contactos_page_view, name='contactos')
 ]

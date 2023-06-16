@@ -1,0 +1,44 @@
+* {
+    font-family: "Oxygen", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5vh;
+}
+
+h2 {
+    padding: 1vh;
+    margin-bottom: 5vh;
+    font-size: xxx-large;
+    color: whitesmoke;
+}
+
+.card {
+    width: 60vh;
+    background-color: #f1f1f1;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.container a {
+    text-decoration: none;
+    color: black;
+}
+
+.name {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.details {
+    font-size: 16px;
+}

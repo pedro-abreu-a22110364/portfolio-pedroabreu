@@ -84,3 +84,12 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titulo
+
+
+class Contacto(models.Model):
+    nome = models.CharField(max_length=50)
+    link = models.CharField(max_length=300, default="Sem link", blank=True)
+    fotografia = models.ImageField(blank=True)
+
+    def __str__(self):
+        return self.nome

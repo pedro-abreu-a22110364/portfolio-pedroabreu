@@ -1,0 +1,19 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/contacto.css' %}">
+
+    <div class="container">
+        <h2>Contactos</h2>
+        {% for contact in contactos %}
+            <a href="{{ contact.link }}" target="_blank">
+                <div class="card">
+                    <div class="name">{{ contact.nome }}</div>
+                    <img class="details" src="{{ contact.fotografia }}" alt="Foto">
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+{% endblock %}

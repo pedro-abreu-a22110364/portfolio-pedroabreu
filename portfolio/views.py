@@ -41,6 +41,11 @@ def tfc_page_view(request):
     return render(request, 'portfolio/tfc.html', context)
 
 
+def contactos_page_view(request):
+    contactos = {'contactos': Contacto.objects.all()}
+    return render(request, 'portfolio/contacto.html', contactos)
+
+
 def licenciatura_page_view(request):
     cadeiras = {'cadeiras': Cadeira.objects.all()}
     return render(request, 'portfolio/licenciatura.html', cadeiras)
