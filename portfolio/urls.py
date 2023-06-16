@@ -20,5 +20,6 @@ urlpatterns = [
     path('blog', views.blog_page_view, name='blog'),
     path('login', views.login_view, name='login'),
     path('logout', views.logout_view, name='logout'),
-    path('video', views.video_page_view, name='video')
+    path('video', views.video_page_view, name='video'),
+    path('cidade', views.cidade_page_view, name='cidade')
 ]

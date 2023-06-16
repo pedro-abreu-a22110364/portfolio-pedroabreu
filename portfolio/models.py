@@ -83,10 +83,10 @@ class Contacto(models.Model):
         return self.nome
 
 
-class Educacao(models.Model):
+class Formacao(models.Model):
     curso = models.CharField(max_length=100)
     local = models.CharField(max_length=50)
-    data_entrada = models.DateField
+    data_entrada = models.DateField (null=True, blank=True)
     data_saida = models.DateField(null=True, blank=True)
     logotipo = models.ImageField(upload_to='tarefas/portfolio', null=True, blank=True)
 
@@ -139,3 +139,11 @@ class Comentario(models.Model):
 
     def __str__(self):
         return self.titulo
+
+
+class Cidade(models.Model):
+    nome = models.CharField(max_length=100, null=True, blank=True)
+    pais = models.CharField(max_length=100, null=True, blank=True)
+
+    def __str__(self):
+        return self.nome

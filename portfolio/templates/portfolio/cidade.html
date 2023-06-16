@@ -1,0 +1,17 @@
+{% extends 'portfolio/layout.html' %}
+
+{% block main %}
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/licenciatura.css' %}">
+
+    <div class="container">
+        <h2>Cidades</h2>
+        {% for cidade in cidades %}
+            <div class="card">
+                <div class="name">{{ cidade.nome }}</div>
+                <div class="details">{{ cidade.pais }}</div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -129,3 +129,8 @@ def blogEditar_page_view(request, blog_id):
 
 def video_page_view(request):
     return render(request, 'portfolio/video.html')
+
+
+def cidade_page_view(request):
+    cidades = {'cidades': Cidade.objects.all()}
+    return render(request, 'portfolio/cidade.html', cidades)
