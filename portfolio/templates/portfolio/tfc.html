@@ -5,15 +5,13 @@
     <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/licenciatura.css' %}">
 
     <div class="container">
-        <h2>Projetos pessoais</h2>
-        {% for projeto in projetos %}
-            <a href="{{ projeto.github }}" target="_blank">
+        <h2>Trabalhos finais de curso</h2>
+        {% for t in tfcs %}
+            <a href="{{ t.relatorio }}" target="_blank">
                 <div class="card">
-                    <div class="name">{{ projeto.titulo }}</div>
-                    <div class="details">Trabalho realizado no âmbito da cadeira de {{ projeto.cadeira.nome }}</div>
+                    <div class="name">{{ t.titulo }}</div>
                 </div>
             </a>
-
         {% endfor %}
     </div>
 

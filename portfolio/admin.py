@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from portfolio.models import Competencia, Cadeira, Pessoa, Projeto, Hobbie, Tfc, Post
+from portfolio.models import *
 
 # Register your models here.
 

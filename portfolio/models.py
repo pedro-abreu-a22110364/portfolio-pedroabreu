@@ -68,6 +68,7 @@ class Tfc(models.Model):
     resumo = models.CharField(max_length=500, default="Sumario")
     relatorio = models.CharField(max_length=300, default="Sem link")
     github = models.CharField(max_length=300, default="Sem link", blank=True)
+    youtube = models.CharField(max_length=300, default="Sem link", blank=True)
 
     def __str__(self):
         return self.titulo

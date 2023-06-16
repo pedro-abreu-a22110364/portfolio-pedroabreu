@@ -25,7 +25,13 @@ def formacao_page_view(request):
 
 
 def projetos_page_view(request):
-    return render(request, 'portfolio/projetos.html')
+    projetos = {'projetos': Projeto.objects.all()}
+    return render(request, 'portfolio/projetos.html', projetos)
+
+
+def tfc_page_view(request):
+    tfcs = {'tfcs': Tfc.objects.all()}
+    return render(request, 'portfolio/tfc.html', tfcs)
 
 
 def licenciatura_page_view(request):
