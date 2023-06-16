@@ -1,15 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Competências</title>
-</head>
-<body>
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
-    <h3>Titulo</h3>
-    <p>texto texto texto texto texto texto texto </p>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/licenciatura.css' %}">
+
+    <div class="container">
+        <h2>Aptidões e competências</h2>
+        {% for competencia in competencias %}
+            <div class="card">
+                <div class="name">{{ competencia.titulo }}</div>
+                <div class="details">Tipo: {{ competencia.descricao }}</div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
-</body>
-</html>

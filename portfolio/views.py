@@ -17,7 +17,8 @@ def home_page_view(request):
 
 
 def competencias_page_view(request):
-    return render(request, 'portfolio/competencias.html')
+    competencias = {'competencias': Competencia.objects.all()}
+    return render(request, 'portfolio/competencias.html', competencias)
 
 
 def formacao_page_view(request):
