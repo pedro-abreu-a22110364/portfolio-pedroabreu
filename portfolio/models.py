@@ -86,7 +86,7 @@ class Contacto(models.Model):
 class Formacao(models.Model):
     curso = models.CharField(max_length=100)
     local = models.CharField(max_length=50)
-    data_entrada = models.DateField (null=True, blank=True)
+    data_entrada = models.DateField(null=True, blank=True)
     data_saida = models.DateField(null=True, blank=True)
     logotipo = models.ImageField(upload_to='tarefas/portfolio', null=True, blank=True)
 

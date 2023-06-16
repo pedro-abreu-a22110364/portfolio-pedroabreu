@@ -1,15 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Formação</title>
-</head>
-<body>
 {% extends 'portfolio/layout.html' %}
 
 {% block main %}
-    <h3>Titulo</h3>
-    <p>texto texto texto texto texto texto texto </p>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio/css/licenciatura.css' %}">
+
+    <div class="container">
+        <h2>Formação</h2>
+        {% for formacao in formacoes %}
+            <div class="card">
+                <div class="name">{{ formacao.curso }}</div>
+                <div class="details">{{ formacao.local }}</div>
+                <div class="details">Início: {{ formacao.data_entrada }}</div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
-</body>
-</html>

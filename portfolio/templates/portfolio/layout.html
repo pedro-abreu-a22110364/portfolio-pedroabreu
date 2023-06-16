@@ -20,7 +20,7 @@
             </p>
             <div class="dropdown-content">
                 <a href="{% url 'portfolio:licenciatura' %}">Licenciatura</a>
-                <a href="">Educação</a>
+                <a href="{% url 'portfolio:formacao' %}">Educação</a>
                 <a href="{% url 'portfolio:competencias' %}">Aptidões e competências</a>
                 <a href="{% url 'portfolio:hobbies' %}">Interesses e hobbies</a>
             </div>
@@ -44,6 +44,7 @@
             </p>
             <div class="dropdown-content">
                 <a href="{% url 'portfolio:video' %}">Video</a>
+                <a href="{% url 'portfolio:cidade' %}">Cidades</a>
                 <a href="">Lab 1/2</a>
                 <a href="">Lab 3</a>
             </div>
@@ -52,8 +53,6 @@
         <a href="{% url 'portfolio:blog' %}">Blog</a>
 
         <a href="{% url 'portfolio:contactos' %}">Contacto</a>
-
-        <a href="{% url 'portfolio:cidade' %}">Cidades</a>
 
         {% if not request.user.is_authenticated %}
             <a href="{% url 'portfolio:login' %}">Login</a>

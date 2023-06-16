@@ -22,7 +22,8 @@ def competencias_page_view(request):
 
 
 def formacao_page_view(request):
-    return render(request, 'portfolio/formacao.html')
+    formacoes = {'formacoes': Formacao.objects.all()}
+    return render(request, 'portfolio/formacao.html', formacoes)
 
 
 def projetos_page_view(request):
