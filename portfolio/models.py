@@ -54,7 +54,7 @@ class Competencia(models.Model):
 class Hobbie(models.Model):
     titulo = models.CharField(max_length=100, default="Titulo")
     descricao = models.CharField(max_length=500, default="Descrição")
-    fotografia = models.ImageField(blank=True)
+    fotografia = models.ImageField(upload_to='tarefas/portfolio', null=True, blank=True)
     link = models.CharField(max_length=300, blank=True)
 
     def __str__(self):
@@ -80,7 +80,7 @@ class Post(models.Model):
     autor = models.OneToOneField(Pessoa, on_delete=models.CASCADE, blank=True)
     data = models.DateField
     link = models.CharField(max_length=300, blank=True)
-    fotografia = models.ImageField(blank=True)
+    fotografia = models.ImageField(upload_to='tarefas/portfolio', null=True, blank=True)
 
     def __str__(self):
         return self.titulo
@@ -89,7 +89,7 @@ class Post(models.Model):
 class Contacto(models.Model):
     nome = models.CharField(max_length=50)
     link = models.CharField(max_length=300, default="Sem link", blank=True)
-    fotografia = models.ImageField(blank=True)
+    fotografia = models.ImageField(upload_to='tarefas/portfolio', null=True, blank=True)
 
     def __str__(self):
         return self.nome
